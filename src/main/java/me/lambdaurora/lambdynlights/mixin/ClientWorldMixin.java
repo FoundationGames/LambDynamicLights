@@ -16,14 +16,17 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(ClientWorld.class)
 public class ClientWorldMixin
 {
-    @Inject(method = "finishRemovingEntity", at = @At("RETURN"))
-    private void onFinishRemovingEntity(Entity entity, CallbackInfo ci)
+    @Inject(method = "removeEntity", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    private void onFinishRemovingEntity(int entityId, Entity.RemovalReason removalReason, CallbackInfo ci, Entity entity)
     {
-        DynamicLightSource dls = (DynamicLightSource) entity;
-        dls.setDynamicLightEnabled(false);
+        if (entity != null) {
+            DynamicLightSource dls = (DynamicLightSource) entity;
+            dls.setDynamicLightEnabled(false);
+        }
     }
 }

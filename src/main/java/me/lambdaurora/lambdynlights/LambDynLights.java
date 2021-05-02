@@ -74,13 +74,13 @@ public class LambDynLights implements ClientModInitializer {
 
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SimpleSynchronousResourceReloadListener() {
             @Override
-            public Identifier getFabricId() {
-                return new Identifier(MODID, "dynamiclights_resources");
+            public void reload(ResourceManager manager) {
+                ItemLightSources.load(manager);
             }
 
             @Override
-            public void apply(ResourceManager manager) {
-                ItemLightSources.load(manager);
+            public Identifier getFabricId() {
+                return new Identifier(MODID, "dynamiclights_resources");
             }
         });
 

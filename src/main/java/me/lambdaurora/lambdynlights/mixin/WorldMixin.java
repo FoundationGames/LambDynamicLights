@@ -31,13 +31,12 @@ public abstract class WorldMixin
 
     @Inject(
             method = "tickBlockEntities",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Tickable;tick()V", shift = At.Shift.BEFORE),
-            locals = LocalCapture.CAPTURE_FAILEXCEPTION
+            at = @At(value = "HEAD")
     )
-    private void onBlockEntityTick(CallbackInfo ci, Profiler profiler, Iterator<BlockEntity> iterator, BlockEntity blockEntity)
+    private void onBlockEntityTick(CallbackInfo ci)
     {
         if (this.isClient() && LambDynLights.get().config.hasBlockEntitiesLightSource()) {
-            ((DynamicLightSource) blockEntity).dynamicLightTick();
+            //((DynamicLightSource) blockEntity).dynamicLightTick();
         }
     }
 }

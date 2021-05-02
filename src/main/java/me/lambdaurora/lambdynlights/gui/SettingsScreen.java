@@ -9,22 +9,6 @@
 
 package me.lambdaurora.lambdynlights.gui;
 
-import me.lambdaurora.lambdynlights.DynamicLightsConfig;
-import me.lambdaurora.lambdynlights.ExplosiveLightingMode;
-import me.lambdaurora.lambdynlights.LambDynLights;
-import me.lambdaurora.lambdynlights.LambDynLightsCompat;
-import me.lambdaurora.spruceui.Position;
-import me.lambdaurora.spruceui.option.*;
-import me.lambdaurora.spruceui.screen.SpruceScreen;
-import me.lambdaurora.spruceui.widget.SpruceButtonWidget;
-import me.lambdaurora.spruceui.widget.container.SpruceOptionListWidget;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.resource.language.I18n;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.TranslatableText;
-import org.jetbrains.annotations.Nullable;
-
 /**
  * Represents the settings screen of LambDynamicLights.
  *
@@ -32,7 +16,8 @@ import org.jetbrains.annotations.Nullable;
  * @version 1.3.4
  * @since 1.0.0
  */
-public class SettingsScreen extends SpruceScreen {
+public class SettingsScreen /* extends SpruceScreen*/ {
+    /*
     private final DynamicLightsConfig config;
     private final Screen parent;
     private final SpruceOption entitiesOption;
@@ -121,4 +106,5 @@ public class SettingsScreen extends SpruceScreen {
             drawCenteredString(matrices, this.textRenderer, I18n.translate("lambdynlights.menu.canvas.2"), this.width / 2, this.height - 29 - (5 + this.textRenderer.fontHeight) * 2, 0xFFFF0000);
         }
     }
+     */
 }

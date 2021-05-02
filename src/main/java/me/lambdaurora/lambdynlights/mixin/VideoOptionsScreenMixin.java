@@ -10,13 +10,12 @@
 package me.lambdaurora.lambdynlights.mixin;
 
 import me.lambdaurora.lambdynlights.gui.DynamicLightsOptionsOption;
-import me.lambdaurora.spruceui.Tooltip;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.VideoOptionsScreen;
-import net.minecraft.client.gui.screen.options.GameOptionsScreen;
+import net.minecraft.client.gui.screen.option.GameOptionsScreen;
+import net.minecraft.client.gui.screen.option.VideoOptionsScreen;
 import net.minecraft.client.gui.widget.ButtonListWidget;
-import net.minecraft.client.options.GameOptions;
-import net.minecraft.client.options.Option;
+import net.minecraft.client.option.GameOptions;
+import net.minecraft.client.option.Option;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
@@ -50,6 +49,6 @@ public class VideoOptionsScreenMixin extends GameOptionsScreen {
 
     @Inject(method = "render", at = @At("TAIL"))
     private void onRender(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        Tooltip.renderAll(this, matrices);
+        //Tooltip.renderAll(this, matrices);
     }
 }

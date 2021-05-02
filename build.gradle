@@ -58,14 +58,23 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "com.github.lambdaurora:spruceui:${project.spruceui_version}"
-    include "com.github.lambdaurora:spruceui:${project.spruceui_version}"
+    // all ui is crab
 
-    modImplementation("io.github.prospector:modmenu:${project.modmenu_version}") {
-        transitive = false
-    }
+    //modImplementation "com.github.lambdaurora:spruceui:${project.spruceui_version}"
+    //include "com.github.lambdaurora:spruceui:${project.spruceui_version}"
+
+    //modImplementation("io.github.prospector:modmenu:${project.modmenu_version}") {
+    //    transitive = false
+    //}
+
     //modImplementation "grondag:canvas-mc116:1.0.+"
-    modImplementation "com.github.jellysquid3:sodium-fabric:mc1.16.3-0.1.0"
+    //modImplementation "com.github.jellysquid3:sodium-fabric:mc1.16.3-0.1.0"
+
+    implementation ("org.aperlambda:lambdajcommon:1.8.1") {
+        exclude group: 'com.google.code.gson'
+        exclude group: 'com.google.guava'
+    }
+    include "org.aperlambda:lambdajcommon:1.8.1"
 
     shadow "com.electronwill.night-config:core:3.6.3"
     shadow "com.electronwill.night-config:toml:3.6.3"

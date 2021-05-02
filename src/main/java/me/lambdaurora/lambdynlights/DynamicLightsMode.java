@@ -9,8 +9,8 @@
 
 package me.lambdaurora.lambdynlights;
 
-import me.lambdaurora.spruceui.SpruceTexts;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import org.aperlambda.lambdacommon.utils.Nameable;
 import org.jetbrains.annotations.NotNull;
@@ -26,10 +26,10 @@ import java.util.Optional;
  * @since 1.0.0
  */
 public enum DynamicLightsMode implements Nameable {
-    OFF(0, Formatting.RED, SpruceTexts.OPTIONS_OFF),
-    FASTEST(500, Formatting.GOLD, SpruceTexts.OPTIONS_GENERIC_FASTEST),
-    FAST(250, Formatting.YELLOW, SpruceTexts.OPTIONS_GENERIC_FAST),
-    FANCY(0, Formatting.GREEN, SpruceTexts.OPTIONS_GENERIC_FANCY);
+    OFF(0, Formatting.RED, new TranslatableText("a")),
+    FASTEST(500, Formatting.GOLD, new TranslatableText("a")),
+    FAST(250, Formatting.YELLOW, new TranslatableText("a")),
+    FANCY(0, Formatting.GREEN, new TranslatableText("a"));
 
     private final int delay;
     private final Text translatedText;

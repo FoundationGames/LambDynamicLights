@@ -9,7 +9,6 @@
 
 package me.lambdaurora.lambdynlights.mixin;
 
-import me.jellysquid.mods.sodium.client.model.light.EntityLighter;
 import me.lambdaurora.lambdynlights.LambDynLights;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.LightType;
@@ -18,9 +17,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(value = EntityLighter.class)
+//@Mixin(value = EntityLighter.class)
 public class EntityLighterMixin
 {
+    /*
     @Redirect(
             method = "getBlendedLight",
             at = @At(
@@ -29,6 +29,8 @@ public class EntityLighterMixin
                     ordinal = 1
             )
     )
+
+     */
     private static int onGetWorldLight(World world, LightType type, BlockPos pos)
     {
         /*

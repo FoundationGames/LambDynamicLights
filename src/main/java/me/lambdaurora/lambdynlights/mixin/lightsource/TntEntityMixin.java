@@ -15,7 +15,9 @@ import me.lambdaurora.lambdynlights.LambDynLights;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.TntEntity;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,8 +27,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(TntEntity.class)
 public abstract class TntEntityMixin extends Entity implements DynamicLightSource
 {
+    @Final
     @Shadow
-    private int fuseTimer;
+    private static TrackedData<Integer> FUSE;
 
     private double lambdynlights_startFuseTimer = 80.0;
     private int lambdynlights_luminance;
@@ -39,7 +42,7 @@ public abstract class TntEntityMixin extends Entity implements DynamicLightSourc
     @Inject(method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;)V", at = @At("TAIL"))
     private void onNew(EntityType<? extends TntEntity> entityType, World world, CallbackInfo ci)
     {
-        this.lambdynlights_startFuseTimer = this.fuseTimer;
+        this.lambdynlights_startFuseTimer = this.getDataTracker().get(FUSE);
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
@@ -50,7 +53,7 @@ public abstract class TntEntityMixin extends Entity implements DynamicLightSourc
             if (!LambDynLights.get().config.getTntLightingMode().isEnabled())
                 return;
 
-            if (this.removed) {
+            if (this.isRemoved()) {
                 this.setDynamicLightEnabled(false);
             } else {
                 this.dynamicLightTick();
@@ -67,7 +70,7 @@ public abstract class TntEntityMixin extends Entity implements DynamicLightSourc
         } else {
             ExplosiveLightingMode lightingMode = LambDynLights.get().config.getTntLightingMode();
             if (lightingMode == ExplosiveLightingMode.FANCY) {
-                double fuse = this.fuseTimer / this.lambdynlights_startFuseTimer;
+                double fuse = this.getDataTracker().get(FUSE) / this.lambdynlights_startFuseTimer;
                 this.lambdynlights_luminance = (int) (-(fuse * fuse) * 10.0) + 10;
             } else {
                 this.lambdynlights_luminance = 10;

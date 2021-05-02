@@ -10,10 +10,6 @@
 package me.lambdaurora.lambdynlights;
 
 import com.electronwill.nightconfig.core.file.FileConfig;
-import me.lambdaurora.spruceui.option.SpruceCyclingOption;
-import me.lambdaurora.spruceui.option.SpruceOption;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
@@ -41,6 +37,7 @@ public class DynamicLightsConfig {
     private ExplosiveLightingMode creeperLightingMode;
     private ExplosiveLightingMode tntLightingMode;
 
+    /*
     public final SpruceOption dynamicLightsModeOption = new SpruceCyclingOption("lambdynlights.option.mode",
             amount -> this.setDynamicLightsMode(this.dynamicLightsMode.next()),
             option -> option.getDisplayText(this.dynamicLightsMode.getTranslatedText()),
@@ -49,6 +46,8 @@ public class DynamicLightsConfig {
                     .append(new TranslatableText("lambdynlights.tooltip.mode.2", DynamicLightsMode.FASTEST.getTranslatedText(), DynamicLightsMode.FAST.getTranslatedText()))
                     .append(new LiteralText("\n"))
                     .append(new TranslatableText("lambdynlights.tooltip.mode.3", DynamicLightsMode.FANCY.getTranslatedText())));
+
+     */
 
     public DynamicLightsConfig(@NotNull LambDynLights mod) {
         this.mod = mod;

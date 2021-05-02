@@ -9,10 +9,6 @@
 
 package me.lambdaurora.lambdynlights;
 
-import io.github.prospector.modmenu.api.ConfigScreenFactory;
-import io.github.prospector.modmenu.api.ModMenuApi;
-import me.lambdaurora.lambdynlights.gui.SettingsScreen;
-
 /**
  * Represents the API implementation of ModMenu for LambDynamicLights.
  *
@@ -20,11 +16,14 @@ import me.lambdaurora.lambdynlights.gui.SettingsScreen;
  * @version 1.2.1
  * @since 1.0.0
  */
-public class LambDynLightsModMenu implements ModMenuApi
+public class LambDynLightsModMenu/* implements ModMenuApi*/
 {
+    /*
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory()
     {
         return SettingsScreen::new;
     }
+
+     */
 }

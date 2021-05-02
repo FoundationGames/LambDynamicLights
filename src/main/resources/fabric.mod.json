@@ -30,8 +30,7 @@
   "depends": {
     "fabricloader": ">=0.11.1",
     "fabric": ">=0.29.3",
-    "minecraft": "~1.16.2",
-    "spruceui": ">=2.0.1"
+    "minecraft": "1.17.x"
   },
   "recommends": {
     "modmenu": ">=1.14.0"
